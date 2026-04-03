@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects | Ethereal Command</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#dae2fd",
+              "on-secondary-fixed-variant": "#005236",
+              "secondary": "#4edea3",
+              "on-tertiary-container": "#ffeee7",
+              "on-background": "#dae2fd",
+              "background": "#0b1326",
+              "surface-container-high": "#222a3d",
+              "on-primary-fixed": "#190064",
+              "surface-bright": "#31394d",
+              "secondary-container": "#00a572",
+              "surface-container-low": "#131b2e",
+              "on-surface": "#dae2fd",
+              "on-tertiary": "#542100",
+              "surface-dim": "#0b1326",
+              "on-primary": "#2d009d",
+              "inverse-on-surface": "#283044",
+              "error-container": "#93000a",
+              "tertiary-container": "#b55000",
+              "on-secondary-fixed": "#002113",
+              "surface-container-highest": "#2d3449",
+              "on-primary-container": "#f4efff",
+              "tertiary-fixed": "#ffdbca",
+              "surface-container-lowest": "#060e20",
+              "error": "#ffb4ab",
+              "on-surface-variant": "#c9c4d9",
+              "surface": "#0b1326",
+              "on-secondary-container": "#00311f",
+              "on-error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#ffb68f",
+              "secondary-fixed-dim": "#4edea3",
+              "primary-fixed": "#e5deff",
+              "primary": "#c8bfff",
+              "surface-container": "#171f33",
+              "primary-fixed-dim": "#c8bfff",
+              "primary-container": "#6b4cff",
+              "outline": "#928ea2",
+              "inverse-primary": "#5b38ef",
+              "on-tertiary-fixed-variant": "#773200",
+              "surface-tint": "#c8bfff",
+              "tertiary": "#ffb68f",
+              "outline-variant": "#474556",
+              "on-primary-fixed-variant": "#4205d8",
+              "secondary-fixed": "#6ffbbe",
+              "surface-variant": "#2d3449",
+              "on-tertiary-fixed": "#331200",
+              "on-error": "#690005",
+              "on-secondary": "#003824"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Manrope"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(34, 42, 61, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .shadow-bloom {
+            box-shadow: 0 40px 60px rgba(107, 76, 255, 0.06);
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #6b4cff 0%, #c8bfff 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low flex flex-col py-6 shadow-[10px_0_30px_rgba(0,0,0,0.3)] z-50">
+<div class="px-7 mb-10 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">keyboard_command_key</span>
+</div>
+<div>
+<h1 class="font-headline font-extrabold text-primary tracking-wider leading-none">Ethereal</h1>
+<p class="font-label text-[10px] text-outline uppercase tracking-widest mt-1">Command Suite</p>
+</div>
+</div>
+<nav class="flex-grow font-label font-medium text-sm">
+<a class="text-on-surface-variant pl-7 py-3 my-1 hover:text-white hover:bg-surface-container-highest/30 rounded-r-full transition-all flex items-center gap-3 group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">dashboard</span>
+                Overview
+            </a>
+<!-- Active Tab: Projects -->
+<a class="text-secondary bg-surface-container-high rounded-r-full border-l-4 border-secondary pl-6 py-3 my-1 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">folder_open</span>
+                Projects
+            </a>
+<a class="text-on-surface-variant pl-7 py-3 my-1 hover:text-white hover:bg-surface-container-highest/30 rounded-r-full transition-all flex items-center gap-3 group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">assignment</span>
+                Tasks
+            </a>
+<a class="text-on-surface-variant pl-7 py-3 my-1 hover:text-white hover:bg-surface-container-highest/30 rounded-r-full transition-all flex items-center gap-3 group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">description</span>
+                Files
+            </a>
+<a class="text-on-surface-variant pl-7 py-3 my-1 hover:text-white hover:bg-surface-container-highest/30 rounded-r-full transition-all flex items-center gap-3 group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">archive</span>
+                Archive
+            </a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full py-3 bg-surface-container-highest/50 hover:bg-surface-container-highest text-primary font-label text-sm rounded-xl transition-all border border-outline-variant/10">
+                New Workspace
+            </button>
+<div class="mt-6 font-label font-medium text-sm border-t border-outline-variant/10 pt-4">
+<a class="text-on-surface-variant pl-4 py-2 my-1 hover:text-white flex items-center gap-3 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+                    Help
+                </a>
+<a class="text-on-surface-variant pl-4 py-2 my-1 hover:text-white flex items-center gap-3 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+                    Logout
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-gradient-to-b from-surface-container-low to-transparent backdrop-blur-xl px-12 py-8 flex justify-between items-center">
+<div>
+<h2 class="font-headline text-2xl font-bold tracking-tight text-white">My Projects</h2>
+<p class="font-label text-on-surface-variant text-sm mt-1">Manage and track your active initiatives.</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-2">
+<button class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container-highest/50 transition-all active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container-highest/50 transition-all active:scale-95">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<button class="bg-gradient-primary text-on-primary font-headline font-bold px-6 py-2.5 rounded-xl shadow-[0_10px_30px_rgba(107,76,255,0.3)] transition-all active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                    Create Project
+                </button>
+<div class="h-10 w-10 rounded-full border-2 border-primary-container overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close-up professional portrait of a tech executive with soft cinematic lighting against a dark blurred office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw9Kl4ptnQOtpmIu-SLTJl4Nhz8vC3DuIS2aCX3t6Dq-iWYUircBleYRpEnoqI0Pok4XovzaVbFfLv39Lu9Fb3Vj8ncCNA76v-2SexvwAA5JNMdWDeM87_Mzpe9uO5XuIU2gfVw9RkAq6iSjeRFz3GrcNiJLCHe2u8NzIprVHj7SfhiLJrb12sVKwZRKi9WtmF0Pz7uB3hOwBd01iaxIS0e-U76sIVxjKvjEx_dwb92Fjz-Ja5GhP-KGipN4GU4chdzy-C_36rEso"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="px-12 pb-20">
+<!-- Bento Grid / Cards Section -->
+<div class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-8 mt-4">
+<!-- Project Card 1 -->
+<div class="glass-card shadow-bloom rounded-[1.5rem] p-8 flex flex-col border border-outline-variant/10 group hover:border-primary/20 transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h3 class="font-headline font-bold text-xl text-white">Astraeus AI Integration</h3>
+<p class="font-label text-xs text-secondary mt-0.5 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                    In Progress
+                                </p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<p class="font-label text-sm text-on-surface-variant leading-relaxed mb-8">
+                        Implementation of neural network modules for predictive resource allocation within the core command engine.
+                    </p>
+<div class="mb-8">
+<div class="flex justify-between items-end mb-3">
+<span class="font-label text-xs text-on-surface-variant font-medium">Project Progress</span>
+<span class="font-headline text-lg font-extrabold text-secondary">74%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full shadow-[0_0_12px_rgba(78,222,163,0.4)]" style="width: 74%"></div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/10">
+<h4 class="font-label text-[10px] uppercase tracking-widest text-outline mb-4">Sub-Tasks</h4>
+<div class="space-y-3">
+<div class="flex items-center gap-3 group/item">
+<div class="w-5 h-5 rounded bg-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-on-secondary font-bold">check</span>
+</div>
+<span class="font-label text-sm text-on-surface-variant line-through opacity-50">API Authentication Layer</span>
+</div>
+<div class="flex items-center gap-3 group/item">
+<div class="w-5 h-5 rounded border border-outline-variant/40 bg-surface-container-highest transition-colors hover:border-primary/50"></div>
+<span class="font-label text-sm text-on-surface hover:text-primary transition-colors cursor-pointer">Data Stream Normalization</span>
+</div>
+<div class="flex items-center gap-3 group/item">
+<div class="w-5 h-5 rounded border border-outline-variant/40 bg-surface-container-highest transition-colors hover:border-primary/50"></div>
+<span class="font-label text-sm text-on-surface hover:text-primary transition-colors cursor-pointer">Model Training Pipeline</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="glass-card shadow-bloom rounded-[1.5rem] p-8 flex flex-col border border-outline-variant/10 group hover:border-primary/20 transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</div>
+<div>
+<h3 class="font-headline font-bold text-xl text-white">Quantum Ledger Sync</h3>
+<p class="font-label text-xs text-outline mt-0.5 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                                    Not Started
+                                </p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<p class="font-label text-sm text-on-surface-variant leading-relaxed mb-8">
+                        Securing cross-chain communication protocols using post-quantum cryptographic standards for the audit vault.
+                    </p>
+<div class="mb-8">
+<div class="flex justify-between items-end mb-3">
+<span class="font-label text-xs text-on-surface-variant font-medium">Project Progress</span>
+<span class="font-headline text-lg font-extrabold text-outline">0%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 0%"></div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/10">
+<h4 class="font-label text-[10px] uppercase tracking-widest text-outline mb-4">Sub-Tasks</h4>
+<div class="space-y-3">
+<div class="flex items-center gap-3 group/item">
+<div class="w-5 h-5 rounded border border-outline-variant/40 bg-surface-container-highest transition-colors hover:border-primary/50"></div>
+<span class="font-label text-sm text-on-surface hover:text-primary transition-colors cursor-pointer">Protocol Definition</span>
+</div>
+<div class="flex items-center gap-3 group/item">
+<div class="w-5 h-5 rounded border border-outline-variant/40 bg-surface-container-highest transition-colors hover:border-primary/50"></div>
+<span class="font-label text-sm text-on-surface hover:text-primary transition-colors cursor-pointer">Encryption Key Generation</span>
+</div>
+<div class="flex items-center gap-3 group/item">
+<div class="w-5 h-5 rounded border border-outline-variant/40 bg-surface-container-highest transition-colors hover:border-primary/50"></div>
+<span class="font-label text-sm text-on-surface hover:text-primary transition-colors cursor-pointer">Security Audit Baseline</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="glass-card shadow-bloom rounded-[1.5rem] p-8 flex flex-col border border-outline-variant/10 group hover:border-primary/20 transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">dashboard_customize</span>
+</div>
+<div>
+<h3 class="font-headline font-bold text-xl text-white">Ethereal UI v2.0</h3>
+<p class="font-label text-xs text-secondary mt-0.5 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                    In Progress
+                                </p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<p class="font-label text-sm text-on-surface-variant leading-relaxed mb-8">
+                        Redesigning the core user experience to prioritize cinematic data visualization and atmospheric glass interfaces.
+                    </p>
+<div class="mb-8">
+<div class="flex justify-between items-end mb-3">
+<span class="font-label text-xs text-on-surface-variant font-medium">Project Progress</span>
+<span class="font-headline text-lg font-extrabold text-secondary">42%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full shadow-[0_0_12px_rgba(78,222,163,0.4)]" style="width: 42%"></div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/10">
+<h4 class="font-label text-[10px] uppercase tracking-widest text-outline mb-4">Sub-Tasks</h4>
+<div class="space-y-3">
+<div class="flex items-center gap-3 group/item">
+<div class="w-5 h-5 rounded bg-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-on-secondary font-bold">check</span>
+</div>
+<span class="font-label text-sm text-on-surface-variant line-through opacity-50">Visual Token Architecture</span>
+</div>
+<div class="flex items-center gap-3 group/item">
+<div class="w-5 h-5 rounded border border-outline-variant/40 bg-surface-container-highest transition-colors hover:border-primary/50"></div>
+<span class="font-label text-sm text-on-surface hover:text-primary transition-colors cursor-pointer">Glassmorphism Card Specs</span>
+</div>
+<div class="flex items-center gap-3 group/item">
+<div class="w-5 h-5 rounded border border-outline-variant/40 bg-surface-container-highest transition-colors hover:border-primary/50"></div>
+<span class="font-label text-sm text-on-surface hover:text-primary transition-colors cursor-pointer">Responsive Grid Testing</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Dashboard Visual Separator -->
+<div class="mt-20 flex flex-col items-center justify-center opacity-40">
+<div class="w-px h-24 bg-gradient-to-b from-primary/50 to-transparent"></div>
+<p class="font-label text-[10px] uppercase tracking-[0.3em] text-outline mt-4 text-center">End of Project Stream</p>
+</div>
+</div>
+</main>
+<!-- Ambient Glow Effects (Decorative) -->
+<div class="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/5 blur-[150px] rounded-full pointer-events-none z-0"></div>
+<div class="fixed bottom-[-5%] right-[-5%] w-[40%] h-[40%] bg-secondary/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
+</body></html>

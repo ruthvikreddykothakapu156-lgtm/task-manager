@@ -1,0 +1,37 @@
+{
+  "name": "projects/7734794892930471395",
+  "projectId": "7734794892930471395",
+  "title": "Productivity Dashboard",
+  "designTheme": {
+    "colorMode": "DARK",
+    "font": "MANROPE",
+    "roundness": "ROUND_EIGHT",
+    "customColor": "#6b4cff"
+  },
+  "screens": {
+    "dashboard": {
+      "id": "fcaf82552ed141d4ad7e0f7ccc7f3d64",
+      "sourceScreen": "projects/7734794892930471395/screens/fcaf82552ed141d4ad7e0f7ccc7f3d64",
+      "width": 2560,
+      "height": 2048
+    },
+    "tasks": {
+      "id": "1338fc85d4ed4a2d8c5f305e34c45ace",
+      "sourceScreen": "projects/7734794892930471395/screens/1338fc85d4ed4a2d8c5f305e34c45ace",
+      "width": 2560,
+      "height": 2048
+    },
+    "habits": {
+      "id": "634cb82cf4c6491cb6b6f114550c6391",
+      "sourceScreen": "projects/7734794892930471395/screens/634cb82cf4c6491cb6b6f114550c6391",
+      "width": 2560,
+      "height": 2352
+    },
+    "projects": {
+      "id": "f51c3dd388bf415c9d5058b08bb3f17c",
+      "sourceScreen": "projects/7734794892930471395/screens/f51c3dd388bf415c9d5058b08bb3f17c",
+      "width": 2688,
+      "height": 2736
+    }
+  }
+}

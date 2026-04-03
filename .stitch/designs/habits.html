@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Habit Tracker | Ethereal Command</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#222a3d",
+              "secondary-container": "#00a572",
+              "surface-container-low": "#131b2e",
+              "primary-fixed": "#e5deff",
+              "outline": "#928ea2",
+              "tertiary": "#ffb68f",
+              "surface-container-lowest": "#060e20",
+              "surface-bright": "#31394d",
+              "on-primary-fixed": "#190064",
+              "secondary-fixed": "#6ffbbe",
+              "on-secondary-fixed-variant": "#005236",
+              "tertiary-fixed-dim": "#ffb68f",
+              "secondary": "#4edea3",
+              "on-secondary": "#003824",
+              "on-error-container": "#ffdad6",
+              "primary": "#c8bfff",
+              "tertiary-fixed": "#ffdbca",
+              "on-tertiary-fixed": "#331200",
+              "primary-fixed-dim": "#c8bfff",
+              "on-primary-fixed-variant": "#4205d8",
+              "error": "#ffb4ab",
+              "on-error": "#690005",
+              "surface-dim": "#0b1326",
+              "on-surface-variant": "#c9c4d9",
+              "on-primary-container": "#f4efff",
+              "tertiary-container": "#b55000",
+              "on-tertiary": "#542100",
+              "on-tertiary-container": "#ffeee7",
+              "surface-container": "#171f33",
+              "surface": "#0b1326",
+              "primary-container": "#6b4cff",
+              "on-primary": "#2d009d",
+              "error-container": "#93000a",
+              "secondary-fixed-dim": "#4edea3",
+              "on-surface": "#dae2fd",
+              "surface-variant": "#2d3449",
+              "outline-variant": "#474556",
+              "surface-tint": "#c8bfff",
+              "on-tertiary-fixed-variant": "#773200",
+              "on-background": "#dae2fd",
+              "surface-container-highest": "#2d3449",
+              "background": "#0b1326",
+              "on-secondary-fixed": "#002113",
+              "on-secondary-container": "#00311f",
+              "inverse-primary": "#5b38ef",
+              "inverse-on-surface": "#283044",
+              "inverse-surface": "#dae2fd"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Manrope"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(45, 52, 73, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .glow-shadow-primary {
+            shadow: 0 0 40px rgba(107, 76, 255, 0.06);
+        }
+        .glow-shadow-secondary {
+            box-shadow: 0 0 20px rgba(78, 222, 163, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen w-64 border-r-0 bg-slate-900/50 dark:bg-[#131b2e] sticky top-0 py-8 px-4 shadow-[0_0_40px_rgba(107,76,255,0.06)]">
+<div class="mb-10 px-4">
+<h1 class="text-2xl font-black tracking-tighter text-white dark:text-[#c8bfff] font-headline">Ethereal</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/60 font-label">Command Center</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 text-slate-400 dark:text-[#c9c4d9] px-4 py-3 hover:text-white transition-colors hover:bg-white/5 dark:hover:bg-[#222a3d] rounded-xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+<span class="font-label text-xs font-medium tracking-wide">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 dark:text-[#c9c4d9] px-4 py-3 hover:text-white transition-colors hover:bg-white/5 dark:hover:bg-[#222a3d] rounded-xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+<span class="font-label text-xs font-medium tracking-wide">Tasks</span>
+</a>
+<!-- Active Tab: Habits -->
+<a class="flex items-center gap-3 text-white dark:text-[#c8bfff] font-bold bg-indigo-500/10 dark:bg-[#2d3449] rounded-xl px-4 py-3 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-lg">repeat</span>
+<span class="font-label text-xs font-medium tracking-wide">Habits</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 dark:text-[#c9c4d9] px-4 py-3 hover:text-white transition-colors hover:bg-white/5 dark:hover:bg-[#222a3d] rounded-xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">folder_open</span>
+<span class="font-label text-xs font-medium tracking-wide">Projects</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 dark:text-[#c9c4d9] px-4 py-3 hover:text-white transition-colors hover:bg-white/5 dark:hover:bg-[#222a3d] rounded-xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">person</span>
+<span class="font-label text-xs font-medium tracking-wide">Profile</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 dark:text-[#c9c4d9] px-4 py-3 hover:text-white transition-colors hover:bg-white/5 dark:hover:bg-[#222a3d] rounded-xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span class="font-label text-xs font-medium tracking-wide">Settings</span>
+</a>
+</nav>
+<button class="mt-auto mx-4 bg-gradient-to-br from-primary-container to-primary text-on-primary-fixed font-bold py-3 rounded-xl scale-95 active:scale-90 transition-transform shadow-lg shadow-primary-container/20">
+                New Project
+            </button>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0 bg-background">
+<!-- TopNavBar -->
+<header class="w-full h-20 sticky top-0 z-40 bg-transparent backdrop-blur-xl">
+<div class="flex justify-between items-center w-full px-8 max-w-[1600px] mx-auto h-full">
+<div class="flex items-center gap-8">
+<h2 class="hidden md:block text-xl font-bold text-white font-headline">Habit Tracker</h2>
+<div class="relative group">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-outline pointer-events-none">
+<span class="material-symbols-outlined text-sm">search</span>
+</span>
+<input class="bg-surface-container-lowest border-none ring-1 ring-outline-variant/15 text-sm rounded-full py-2 pl-10 pr-4 w-64 focus:ring-primary/50 transition-all outline-none" placeholder="Search habits..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:opacity-80 transition-opacity">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:opacity-80 transition-opacity">dark_mode</button>
+<button class="hidden sm:flex items-center gap-2 bg-gradient-to-br from-primary-container to-primary text-on-primary-fixed font-label text-xs font-bold px-5 py-2 rounded-full hover:opacity-90 transition-all">
+                            Add New Habit
+                        </button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20">
+<img class="w-full h-full object-cover" data-alt="professional headshot of a creative professional woman with soft studio lighting and a clean minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb9jqvdzsIHoo7KYZA5qx6TkmrMbv8SGeKliVp4dl9TURz6QrgICcvw_asSyJQncsCfl0-RxOo2Rs5vuXNi6Mpl-Qalklk_p-VzBeTTdBQv2DtLN-Er-_4OODgZhy4jI10GVMiYmZaO05PeAakx3Dvr71b2N_YlpnyPPzjjk3PARmp-ioTS_5oBOBNcGnYno3h7yrE31Tg9hfFwDrr3KEqPFdC5GBLjDCKkryP3I-ZhAgSiWEGfWb4JleqznCsJHacxerBFEHfAqI"/>
+</div>
+</div>
+</div>
+</header>
+<div class="px-8 py-6 max-w-[1600px] mx-auto w-full space-y-12">
+<!-- Summary Strip -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="glass-card p-6 rounded-xl flex items-center justify-between group hover:translate-y-[-4px] transition-all duration-300">
+<div>
+<p class="font-label text-xs font-semibold text-on-surface-variant uppercase tracking-widest mb-1">Active Habits</p>
+<h3 class="text-4xl font-extrabold font-headline">12</h3>
+</div>
+<div class="w-14 h-14 rounded-xl bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">task_alt</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl flex items-center justify-between group hover:translate-y-[-4px] transition-all duration-300">
+<div>
+<p class="font-label text-xs font-semibold text-on-surface-variant uppercase tracking-widest mb-1">Longest Streak 🔥</p>
+<h3 class="text-4xl font-extrabold font-headline">28 <span class="text-lg font-normal text-on-surface-variant">days</span></h3>
+</div>
+<div class="w-14 h-14 rounded-xl bg-secondary-container/10 flex items-center justify-center text-secondary glow-shadow-secondary">
+<span class="material-symbols-outlined text-3xl">local_fire_department</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl flex items-center justify-between group hover:translate-y-[-4px] transition-all duration-300">
+<div>
+<p class="font-label text-xs font-semibold text-on-surface-variant uppercase tracking-widest mb-1">Total Check-ins</p>
+<h3 class="text-4xl font-extrabold font-headline">842</h3>
+</div>
+<div class="w-14 h-14 rounded-xl bg-tertiary-container/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-3xl">calendar_month</span>
+</div>
+</div>
+</section>
+<!-- Habit Cards Area -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="text-2xl font-bold font-headline">Today's Protocol</h2>
+<div class="flex gap-2">
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-xs font-label font-bold text-on-surface hover:bg-surface-container-highest transition-colors">All</button>
+<button class="px-4 py-2 rounded-full bg-transparent text-xs font-label font-medium text-on-surface-variant hover:text-on-surface transition-colors">Morning</button>
+<button class="px-4 py-2 rounded-full bg-transparent text-xs font-label font-medium text-on-surface-variant hover:text-on-surface transition-colors">Evening</button>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+<!-- Habit Card 1 -->
+<div class="glass-card bg-surface-container-high/60 p-6 rounded-xl flex items-center justify-between border border-white/5 group hover:border-primary/20 transition-all duration-500">
+<div class="flex-1">
+<h4 class="text-lg font-bold font-headline mb-1">Deep Work Focus</h4>
+<span class="inline-block px-2 py-0.5 rounded-md bg-surface-container-lowest text-[10px] font-label font-bold text-primary uppercase tracking-wider">Daily</span>
+</div>
+<div class="flex-none px-8">
+<div class="flex gap-1.5">
+<div class="w-6 h-8 rounded-sm bg-secondary glow-shadow-secondary flex items-end justify-center pb-1"><span class="text-[8px] font-bold text-on-secondary font-label">M</span></div>
+<div class="w-6 h-8 rounded-sm bg-secondary glow-shadow-secondary flex items-end justify-center pb-1"><span class="text-[8px] font-bold text-on-secondary font-label">T</span></div>
+<div class="w-6 h-8 rounded-sm bg-secondary glow-shadow-secondary flex items-end justify-center pb-1"><span class="text-[8px] font-bold text-on-secondary font-label">W</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">T</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">F</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">S</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">S</span></div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<p class="text-xs font-label text-on-surface-variant">Streak</p>
+<p class="text-lg font-black font-headline text-secondary flex items-center justify-end gap-1">12 <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span></p>
+</div>
+<button class="w-14 h-14 rounded-full border-2 border-secondary bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">done_all</span>
+</button>
+</div>
+</div>
+<!-- Habit Card 2 -->
+<div class="glass-card bg-surface-container-high/60 p-6 rounded-xl flex items-center justify-between border border-white/5 group hover:border-primary/20 transition-all duration-500">
+<div class="flex-1">
+<h4 class="text-lg font-bold font-headline mb-1">Morning Meditation</h4>
+<span class="inline-block px-2 py-0.5 rounded-md bg-surface-container-lowest text-[10px] font-label font-bold text-primary uppercase tracking-wider">Daily</span>
+</div>
+<div class="flex-none px-8">
+<div class="flex gap-1.5">
+<div class="w-6 h-8 rounded-sm bg-secondary glow-shadow-secondary flex items-end justify-center pb-1"><span class="text-[8px] font-bold text-on-secondary font-label">M</span></div>
+<div class="w-6 h-8 rounded-sm bg-secondary glow-shadow-secondary flex items-end justify-center pb-1"><span class="text-[8px] font-bold text-on-secondary font-label">T</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">W</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">T</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">F</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">S</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">S</span></div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<p class="text-xs font-label text-on-surface-variant">Streak</p>
+<p class="text-lg font-black font-headline text-secondary flex items-center justify-end gap-1">3 <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span></p>
+</div>
+<button class="w-14 h-14 rounded-full border-2 border-outline-variant hover:border-secondary hover:bg-secondary/10 flex items-center justify-center text-outline transition-all group-hover:scale-105">
+<span class="material-symbols-outlined text-2xl">radio_button_unchecked</span>
+</button>
+</div>
+</div>
+<!-- Habit Card 3 -->
+<div class="glass-card bg-surface-container-high/60 p-6 rounded-xl flex items-center justify-between border border-white/5 group hover:border-primary/20 transition-all duration-500">
+<div class="flex-1">
+<h4 class="text-lg font-bold font-headline mb-1">Hydration (3L)</h4>
+<span class="inline-block px-2 py-0.5 rounded-md bg-surface-container-lowest text-[10px] font-label font-bold text-primary uppercase tracking-wider">Daily</span>
+</div>
+<div class="flex-none px-8">
+<div class="flex gap-1.5">
+<div class="w-6 h-8 rounded-sm bg-secondary glow-shadow-secondary flex items-end justify-center pb-1"><span class="text-[8px] font-bold text-on-secondary font-label">M</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">T</span></div>
+<div class="w-6 h-8 rounded-sm bg-secondary glow-shadow-secondary flex items-end justify-center pb-1"><span class="text-[8px] font-bold text-on-secondary font-label">W</span></div>
+<div class="w-6 h-8 rounded-sm bg-secondary glow-shadow-secondary flex items-end justify-center pb-1"><span class="text-[8px] font-bold text-on-secondary font-label">T</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">F</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">S</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">S</span></div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<p class="text-xs font-label text-on-surface-variant">Streak</p>
+<p class="text-lg font-black font-headline text-secondary flex items-center justify-end gap-1">2 <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span></p>
+</div>
+<button class="w-14 h-14 rounded-full border-2 border-outline-variant hover:border-secondary hover:bg-secondary/10 flex items-center justify-center text-outline transition-all group-hover:scale-105">
+<span class="material-symbols-outlined text-2xl">radio_button_unchecked</span>
+</button>
+</div>
+</div>
+<!-- Habit Card 4 -->
+<div class="glass-card bg-surface-container-high/60 p-6 rounded-xl flex items-center justify-between border border-white/5 group hover:border-primary/20 transition-all duration-500">
+<div class="flex-1">
+<h4 class="text-lg font-bold font-headline mb-1">Strength Training</h4>
+<span class="inline-block px-2 py-0.5 rounded-md bg-surface-container-lowest text-[10px] font-label font-bold text-primary uppercase tracking-wider">3x Weekly</span>
+</div>
+<div class="flex-none px-8">
+<div class="flex gap-1.5">
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">M</span></div>
+<div class="w-6 h-8 rounded-sm bg-secondary glow-shadow-secondary flex items-end justify-center pb-1"><span class="text-[8px] font-bold text-on-secondary font-label">T</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">W</span></div>
+<div class="w-6 h-8 rounded-sm bg-secondary glow-shadow-secondary flex items-end justify-center pb-1"><span class="text-[8px] font-bold text-on-secondary font-label">T</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">F</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">S</span></div>
+<div class="w-6 h-8 rounded-sm bg-surface-variant flex items-end justify-center pb-1 opacity-40"><span class="text-[8px] font-bold text-on-surface-variant font-label">S</span></div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<p class="text-xs font-label text-on-surface-variant">Streak</p>
+<p class="text-lg font-black font-headline text-secondary flex items-center justify-end gap-1">8 <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span></p>
+</div>
+<button class="w-14 h-14 rounded-full border-2 border-outline-variant hover:border-secondary hover:bg-secondary/10 flex items-center justify-center text-outline transition-all group-hover:scale-105">
+<span class="material-symbols-outlined text-2xl">radio_button_unchecked</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Progress Section -->
+<section class="pb-12">
+<div class="glass-card p-8 rounded-xl relative overflow-hidden">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10 relative z-10">
+<div>
+<h2 class="text-2xl font-bold font-headline mb-2">Weekly Completion Pulse</h2>
+<p class="text-on-surface-variant text-sm font-label">Performance analysis for the current cycle (Oct 23 - Oct 29)</p>
+</div>
+<div class="flex items-center gap-10">
+<div class="text-center">
+<p class="text-[10px] font-label font-bold text-outline-variant uppercase tracking-widest mb-1">Consistency</p>
+<p class="text-2xl font-black font-headline text-secondary">92%</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] font-label font-bold text-outline-variant uppercase tracking-widest mb-1">Missed</p>
+<p class="text-2xl font-black font-headline text-error">2</p>
+</div>
+</div>
+</div>
+<!-- Smooth Glowing Line Chart (SVG) -->
+<div class="relative h-64 w-full">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 200">
+<defs>
+<lineargradient id="gradient-line" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#4edea3" stop-opacity="0.8"></stop>
+<stop offset="100%" stop-color="#4edea3" stop-opacity="0.1"></stop>
+</lineargradient>
+<filter id="glow">
+<fegaussianblur result="coloredBlur" stddeviation="3"></fegaussianblur>
+<femerge>
+<femergenode in="coloredBlur"></femergenode>
+<femergenode in="SourceGraphic"></femergenode>
+</femerge>
+</filter>
+</defs>
+<path d="M0,180 Q100,160 166,100 T332,120 T498,40 T664,70 T830,20 T1000,50 L1000,200 L0,200 Z" fill="url(#gradient-line)"></path>
+<path d="M0,180 Q100,160 166,100 T332,120 T498,40 T664,70 T830,20 T1000,50" fill="none" filter="url(#glow)" stroke="#4edea3" stroke-width="4"></path>
+<!-- Data points -->
+<circle cx="166" cy="100" fill="#4edea3" r="5"></circle>
+<circle cx="332" cy="120" fill="#4edea3" r="5"></circle>
+<circle cx="498" cy="40" fill="#4edea3" r="5"></circle>
+<circle cx="664" cy="70" fill="#4edea3" r="5"></circle>
+<circle cx="830" cy="20" fill="#4edea3" r="5"></circle>
+<circle cx="1000" cy="50" fill="#4edea3" r="5"></circle>
+</svg>
+<!-- X-Axis Labels -->
+<div class="flex justify-between mt-4 px-2 font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">
+<span>Mon</span>
+<span>Tue</span>
+<span>Wed</span>
+<span>Thu</span>
+<span>Fri</span>
+<span>Sat</span>
+<span>Sun</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- Mobile Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-low/95 backdrop-blur-xl border-t border-white/5 px-6 py-4 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-label">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">repeat</span>
+<span class="text-[10px] font-label">Habits</span>
+</a>
+<div class="relative -top-8">
+<button class="w-14 h-14 rounded-full bg-gradient-to-br from-primary-container to-primary text-on-primary-fixed shadow-lg shadow-primary-container/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">check_circle</span>
+<span class="text-[10px] font-label">Tasks</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-label">Profile</span>
+</a>
+</nav>
+</body></html>

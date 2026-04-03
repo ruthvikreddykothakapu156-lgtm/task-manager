@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ethereal Command | Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#222a3d",
+              "on-secondary": "#003824",
+              "outline-variant": "#474556",
+              "on-background": "#dae2fd",
+              "on-secondary-fixed-variant": "#005236",
+              "surface-bright": "#31394d",
+              "surface-tint": "#c8bfff",
+              "on-secondary-container": "#00311f",
+              "tertiary-fixed-dim": "#ffb68f",
+              "primary-container": "#6b4cff",
+              "on-tertiary-container": "#ffeee7",
+              "on-surface-variant": "#c9c4d9",
+              "on-surface": "#dae2fd",
+              "outline": "#928ea2",
+              "error-container": "#93000a",
+              "inverse-primary": "#5b38ef",
+              "secondary-fixed": "#6ffbbe",
+              "primary": "#c8bfff",
+              "secondary-container": "#00a572",
+              "tertiary-fixed": "#ffdbca",
+              "on-tertiary": "#542100",
+              "primary-fixed-dim": "#c8bfff",
+              "on-primary-container": "#f4efff",
+              "surface-container-highest": "#2d3449",
+              "on-error": "#690005",
+              "background": "#0b1326",
+              "on-tertiary-fixed": "#331200",
+              "on-tertiary-fixed-variant": "#773200",
+              "on-error-container": "#ffdad6",
+              "error": "#ffb4ab",
+              "tertiary": "#ffb68f",
+              "inverse-surface": "#dae2fd",
+              "on-secondary-fixed": "#002113",
+              "on-primary-fixed": "#190064",
+              "surface-container-lowest": "#060e20",
+              "primary-fixed": "#e5deff",
+              "surface-variant": "#2d3449",
+              "surface": "#0b1326",
+              "secondary-fixed-dim": "#4edea3",
+              "tertiary-container": "#b55000",
+              "surface-dim": "#0b1326",
+              "on-primary-fixed-variant": "#4205d8",
+              "inverse-on-surface": "#283044",
+              "surface-container-low": "#131b2e",
+              "secondary": "#4edea3",
+              "on-primary": "#2d009d",
+              "surface-container": "#171f33"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Manrope"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        font-family: 'Manrope', sans-serif;
+        background-color: #0b1326;
+        color: #dae2fd;
+      }
+      .glass-card {
+        background: rgba(45, 52, 73, 0.6);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+      }
+      .premium-gradient-bg {
+        background: linear-gradient(135deg, #6b4cff 0%, #c8bfff 100%);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .shadow-bloom {
+        box-shadow: 0 0 40px rgba(107, 76, 255, 0.06);
+      }
+      .ghost-border {
+        border: 1px solid rgba(71, 69, 86, 0.15);
+      }
+    </style>
+</head>
+<body class="flex min-h-screen overflow-hidden">
+<!-- SideNavBar Component -->
+<aside class="flex flex-col h-full py-8 px-4 h-screen w-64 bg-slate-900/50 dark:bg-[#131b2e] shadow-[0_0_40px_rgba(107,76,255,0.06)] shrink-0">
+<div class="mb-10 px-4">
+<h1 class="text-2xl font-black tracking-tighter text-white dark:text-[#c8bfff]">Ethereal</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold opacity-50">Command Center</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Active Item -->
+<a class="flex items-center space-x-3 text-white dark:text-[#c8bfff] font-bold bg-indigo-500/10 dark:bg-[#2d3449] rounded-xl px-4 py-3 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label text-xs tracking-wide">Dashboard</span>
+</a>
+<!-- Inactive Items -->
+<a class="flex items-center space-x-3 text-slate-400 dark:text-[#c9c4d9] px-4 py-3 hover:text-white transition-colors hover:bg-white/5 dark:hover:bg-[#222a3d] rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+<span class="font-label text-xs tracking-wide">Tasks</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-400 dark:text-[#c9c4d9] px-4 py-3 hover:text-white transition-colors hover:bg-white/5 dark:hover:bg-[#222a3d] rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="repeat">repeat</span>
+<span class="font-label text-xs tracking-wide">Habits</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-400 dark:text-[#c9c4d9] px-4 py-3 hover:text-white transition-colors hover:bg-white/5 dark:hover:bg-[#222a3d] rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+<span class="font-label text-xs tracking-wide">Projects</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-400 dark:text-[#c9c4d9] px-4 py-3 hover:text-white transition-colors hover:bg-white/5 dark:hover:bg-[#222a3d] rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label text-xs tracking-wide">Profile</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-400 dark:text-[#c9c4d9] px-4 py-3 hover:text-white transition-colors hover:bg-white/5 dark:hover:bg-[#222a3d] rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label text-xs tracking-wide">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-2">
+<button class="w-full premium-gradient-bg text-on-primary-container font-bold py-4 rounded-xl shadow-lg transition-transform active:scale-95">
+                New Project
+            </button>
+</div>
+</aside>
+<main class="flex-1 flex flex-col h-screen overflow-y-auto bg-background">
+<!-- TopNavBar Component -->
+<header class="w-full h-20 sticky top-0 z-40 bg-transparent backdrop-blur-xl shrink-0">
+<div class="flex justify-between items-center w-full px-8 max-w-[1600px] mx-auto h-full">
+<div class="flex items-center gap-6 flex-1">
+<div class="hidden md:flex items-center bg-surface-container-low px-4 py-2 rounded-xl ghost-border w-full max-w-md">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full text-on-surface ml-2 font-label" placeholder="Search Command..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+</div>
+<div class="h-10 w-10 rounded-full overflow-hidden ghost-border">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="Close-up portrait of a modern professional man with confident expression in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuy_QIJSA5SfPVOEUtN-bIUBk0D-gTqVgsMtV7290jG5QmUzO23bwG4Y3yFMSs10zfm_MYo4XbbFaCIpJkSEhNbjDLHPF9UeTlatr4r2Ds4YwQLop18Q8njaUpuQYLxYp4mSWZH5ZHluvtJIpqnnAc7jFV3T-cwads_dypX0OFmFiQ6HVC8xox7T0DgBIJZ7bqatqsypVDFrxMXT4i6vj4-yM_m9hCzKzVLdhmcTzY2jrZ_2KRJjD1nc3kKomvgo69Hd7QaQIL4yc"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 max-w-[1600px] mx-auto w-full space-y-12">
+<!-- Welcome Header -->
+<section class="space-y-2">
+<h2 class="text-5xl font-extrabold tracking-tighter text-white font-headline">The Command Deck.</h2>
+<p class="text-on-surface-variant font-label text-sm tracking-wide">Good morning, Commander. Here is your situational briefing.</p>
+</section>
+<!-- KPI Cards Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- KPI 1 -->
+<div class="glass-card rounded-xl p-6 shadow-bloom ghost-border flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<span class="text-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Tasks Today</span>
+<span class="material-symbols-outlined text-primary" data-icon="assignment_turned_in">assignment_turned_in</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-extrabold font-headline">12</span>
+<span class="text-secondary text-xs font-bold font-label">+3%</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="glass-card rounded-xl p-6 shadow-bloom ghost-border flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<span class="text-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Active Habits</span>
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-extrabold font-headline">6/8</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="glass-card rounded-xl p-6 shadow-bloom ghost-border flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<span class="text-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Current Streak 🔥</span>
+<span class="material-symbols-outlined text-primary" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-extrabold font-headline">14</span>
+<span class="text-on-surface-variant text-xs font-medium font-label">Days</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="glass-card rounded-xl p-6 shadow-bloom ghost-border flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<span class="text-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Productivity Score</span>
+<span class="material-symbols-outlined text-primary" data-icon="speed">speed</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-extrabold font-headline">94</span>
+<span class="text-secondary text-xs font-bold font-label">A+</span>
+</div>
+</div>
+</section>
+<!-- Main Content Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Tasks & Habits -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Today's Tasks Card -->
+<div class="glass-card rounded-xl p-8 shadow-bloom ghost-border">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-xl font-bold font-headline">Today's Tasks</h3>
+<button class="text-xs font-bold text-primary flex items-center gap-1 hover:underline">
+                                View Archive <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="space-y-4">
+<!-- Task Item -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low/40 hover:bg-surface-container-high transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded bg-surface-container-highest ghost-border flex items-center justify-center cursor-pointer group-hover:border-secondary transition-colors">
+<!-- Checked State -->
+<span class="material-symbols-outlined text-secondary text-sm hidden" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<p class="font-bold text-sm">System Architecture Review</p>
+<p class="text-xs text-on-surface-variant font-label">Design System Implementation</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-tighter bg-error/10 text-error border border-error/20">High Priority</span>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer" data-icon="more_vert">more_vert</span>
+</div>
+</div>
+<!-- Task Item -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low/40 hover:bg-surface-container-high transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded bg-secondary flex items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-on-secondary text-sm" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<p class="font-bold text-sm line-through opacity-50">Morning Briefing with Team</p>
+<p class="text-xs text-on-surface-variant font-label opacity-50">Communication</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-tighter bg-on-surface-variant/10 text-on-surface-variant border border-outline-variant/20">Completed</span>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer" data-icon="more_vert">more_vert</span>
+</div>
+</div>
+<!-- Task Item -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low/40 hover:bg-surface-container-high transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded bg-surface-container-highest ghost-border flex items-center justify-center cursor-pointer group-hover:border-secondary transition-colors"></div>
+<div>
+<p class="font-bold text-sm">Update Component Documentation</p>
+<p class="text-xs text-on-surface-variant font-label">Productivity Hub</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-tighter bg-primary/10 text-primary border border-primary/20">In Progress</span>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer" data-icon="more_vert">more_vert</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Analytics Section: Trend Chart (Simplified Visual) -->
+<div class="glass-card rounded-xl p-8 shadow-bloom ghost-border">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h3 class="text-xl font-bold font-headline">Productivity Trends</h3>
+<p class="text-xs text-on-surface-variant font-label">Weekly performance overview</p>
+</div>
+<div class="flex gap-2">
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-[10px] font-bold uppercase text-on-surface-variant">Focus Hours</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-[10px] font-bold uppercase text-on-surface-variant">Tasks</span>
+</div>
+</div>
+</div>
+<!-- Visual representation of a chart -->
+<div class="h-64 flex items-end justify-between gap-4 px-2">
+<div class="w-full bg-surface-container-high rounded-t-lg relative group">
+<div class="absolute bottom-0 w-full bg-primary/40 h-[40%] rounded-t-lg group-hover:bg-primary/60 transition-all"></div>
+<div class="absolute bottom-0 w-1/2 left-1/4 bg-secondary/60 h-[30%] rounded-t-lg"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-outline">MON</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-t-lg relative group">
+<div class="absolute bottom-0 w-full bg-primary/40 h-[65%] rounded-t-lg group-hover:bg-primary/60 transition-all"></div>
+<div class="absolute bottom-0 w-1/2 left-1/4 bg-secondary/60 h-[45%] rounded-t-lg"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-outline">TUE</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-t-lg relative group">
+<div class="absolute bottom-0 w-full bg-primary/40 h-[85%] rounded-t-lg group-hover:bg-primary/60 transition-all"></div>
+<div class="absolute bottom-0 w-1/2 left-1/4 bg-secondary/60 h-[70%] rounded-t-lg"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-outline">WED</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-t-lg relative group">
+<div class="absolute bottom-0 w-full bg-primary/40 h-[55%] rounded-t-lg group-hover:bg-primary/60 transition-all"></div>
+<div class="absolute bottom-0 w-1/2 left-1/4 bg-secondary/60 h-[40%] rounded-t-lg"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-outline">THU</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-t-lg relative group">
+<div class="absolute bottom-0 w-full bg-primary/40 h-[95%] rounded-t-lg group-hover:bg-primary/60 transition-all"></div>
+<div class="absolute bottom-0 w-1/2 left-1/4 bg-secondary/60 h-[80%] rounded-t-lg"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-secondary">FRI</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-t-lg relative group">
+<div class="absolute bottom-0 w-full bg-primary/40 h-[30%] rounded-t-lg group-hover:bg-primary/60 transition-all"></div>
+<div class="absolute bottom-0 w-1/2 left-1/4 bg-secondary/60 h-[20%] rounded-t-lg"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-outline">SAT</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-t-lg relative group">
+<div class="absolute bottom-0 w-full bg-primary/40 h-[25%] rounded-t-lg group-hover:bg-primary/60 transition-all"></div>
+<div class="absolute bottom-0 w-1/2 left-1/4 bg-secondary/60 h-[15%] rounded-t-lg"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-outline">SUN</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Projects & Quick Actions -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Habit Tracker -->
+<div class="glass-card rounded-xl p-8 shadow-bloom ghost-border">
+<h3 class="text-xl font-bold font-headline mb-6">Habit Tracker</h3>
+<div class="space-y-6">
+<!-- Habit 1 -->
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="text-xs font-bold font-label">Deep Focus (4h)</span>
+<span class="text-[10px] text-secondary font-bold">85%</span>
+</div>
+<div class="h-[0.35rem] w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary shadow-[0_0_8px_#4edea3] w-[85%]"></div>
+</div>
+<div class="flex justify-between mt-1">
+<div class="flex gap-1">
+<div class="w-4 h-4 rounded bg-secondary flex items-center justify-center"><span class="material-symbols-outlined text-[10px] text-on-secondary" data-icon="check">check</span></div>
+<div class="w-4 h-4 rounded bg-secondary flex items-center justify-center"><span class="material-symbols-outlined text-[10px] text-on-secondary" data-icon="check">check</span></div>
+<div class="w-4 h-4 rounded bg-surface-container-highest ghost-border"></div>
+<div class="w-4 h-4 rounded bg-secondary flex items-center justify-center"><span class="material-symbols-outlined text-[10px] text-on-secondary" data-icon="check">check</span></div>
+<div class="w-4 h-4 rounded bg-surface-container-highest ghost-border"></div>
+</div>
+<button class="text-[10px] font-bold text-primary px-2 py-1 rounded bg-primary/10 border border-primary/20">Check In</button>
+</div>
+</div>
+<!-- Habit 2 -->
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="text-xs font-bold font-label">Physical Activity</span>
+<span class="text-[10px] text-secondary font-bold">40%</span>
+</div>
+<div class="h-[0.35rem] w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary shadow-[0_0_8px_#4edea3] w-[40%]"></div>
+</div>
+<div class="flex justify-between mt-1">
+<div class="flex gap-1">
+<div class="w-4 h-4 rounded bg-secondary flex items-center justify-center"><span class="material-symbols-outlined text-[10px] text-on-secondary" data-icon="check">check</span></div>
+<div class="w-4 h-4 rounded bg-surface-container-highest ghost-border"></div>
+<div class="w-4 h-4 rounded bg-surface-container-highest ghost-border"></div>
+<div class="w-4 h-4 rounded bg-surface-container-highest ghost-border"></div>
+<div class="w-4 h-4 rounded bg-surface-container-highest ghost-border"></div>
+</div>
+<button class="text-[10px] font-bold text-primary px-2 py-1 rounded bg-primary/10 border border-primary/20">Check In</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Projects -->
+<div class="glass-card rounded-xl p-8 shadow-bloom ghost-border">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-xl font-bold font-headline">Active Projects</h3>
+<button class="material-symbols-outlined text-on-surface-variant" data-icon="add_circle">add_circle</button>
+</div>
+<div class="space-y-8">
+<!-- Project 1 -->
+<div class="space-y-3">
+<div class="flex justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-lg bg-indigo-500/20 text-indigo-400">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<span class="text-sm font-bold">Aura Engine v2</span>
+</div>
+<span class="text-xs font-bold font-label text-on-surface-variant">72%</span>
+</div>
+<div class="h-[0.35rem] w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full premium-gradient-bg w-[72%]"></div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="space-y-3">
+<div class="flex justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-400">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+</div>
+<span class="text-sm font-bold">Brand Evolution</span>
+</div>
+<span class="text-xs font-bold font-label text-on-surface-variant">45%</span>
+</div>
+<div class="h-[0.35rem] w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full premium-gradient-bg w-[45%]"></div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="space-y-3">
+<div class="flex justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-lg bg-amber-500/20 text-amber-400">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+</div>
+<span class="text-sm font-bold">Market Expansion</span>
+</div>
+<span class="text-xs font-bold font-label text-on-surface-variant">12%</span>
+</div>
+<div class="h-[0.35rem] w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full premium-gradient-bg w-[12%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Floating Action Button (Only for relevant contexts) -->
+<button class="fixed bottom-10 right-10 w-16 h-16 rounded-full premium-gradient-bg shadow-[0_10px_30px_rgba(107,76,255,0.4)] flex items-center justify-center text-white transition-transform hover:scale-110 active:scale-90 z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add" style="font-variation-settings: 'wght' 600;">add</span>
+</button>
+</main>
+</body></html>
